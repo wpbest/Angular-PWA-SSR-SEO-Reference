@@ -1,2 +1,2 @@
-# Angular-PWA-SRR-SEO-Reference
+# Angular-PWA-SSR-SEO-Reference
 An Angular Referance PWA with SSR and SEO
