@@ -156,6 +156,20 @@ Add the meta data in the ```<head>``` section in the intex.html file in the src 
   <meta name="description" content="This is a meta description sample. We can add up to 160 characters.">
 ```
 
+## Install Node Packages
+
+```
+npn install
+```
+
+## Install NPM Check Update (NCU) abd Check packages.json for outdated packages
+
+```
+npm install -g npm-check-updates
+ncu
+ncu -u
+```
+
 ## Compile the Angular Client and Express Server Code.
 
 ```
