@@ -168,7 +168,7 @@ npm run build:ssr
 npm run serve:ssr
 ```
 
-Browse `http://localhost:4000/`
+Browse to [`http://localhost:4000/`](http://localhost:4000/)
 
 
 ## Development server
