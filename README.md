@@ -2,14 +2,174 @@
 
 An Angular Referance PWA with SSR and SEO
 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.0.
+
+## Documentation
+
+[Node.js](https://nodejs.org/en/docs/)
+
+[Angular](https://angular.io/)
+
+[AngularCLI](https://cli.angular.io/)
+
+[RxJS](http://reactivex.io/rxjs/)
+
 ## Install the Angular CLI
-In order to get started with Angular, the Angular CLI is needed. To install the Angular CLI use the following command in the terminal window:
+
+In order to get started with Angular development, [Node.js](https://nodejs.org/en/download/) and the [Angular CLI](https://angular.io/cli) is needed. To install the Angular CLI use the following command in the terminal window:
 
 ```
 $ npm install -g @angular/cli
 ```
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.0.
+## Generate Code scaffolding
+
+### ng new command switches used
+
+#### --enable-ivy
+
+The enable-ivy option enables the next generation renderer.
+
+#### --style=[css | scss | less | sass | styl]
+
+The style option specifies what CSS preprocessor is used in building the project. the options are: css, scss, less, sass, styl.
+
+#### --routing
+
+The routing option generates a file app-routing.module.ts file.
+
+#### --skip-install
+
+This skip-install option disables the npm install after code generation.
+
+#### --skip-git
+
+### Angular CLI Command
+
+```
+ng new angularpwassrseoref --routing --style scss --enable-ivy --skip-install --skip-git
+```
+
+### Using Ivy Renderer
+
+#### Disable Ivy! 
+
+#### [Issue #14646 get error in ivy + SSR](https://github.com/angular/angular-cli/issues/14646).
+
+In the angularCompilerOptions in your project's tsconfig.app.json.
+
+```
+{
+  "compilerOptions": { ... },
+  "angularCompilerOptions": {
+    "enableIvy": false
+  }
+}
+```
+
+AOT compilation with Ivy is faster and should be used by default. In the angular.json workspace configuration file, set the default build options for your project to always use AOT compilation.
+
+```
+{
+  "projects": {
+    "ng8template": {
+      "architect": {
+        "build": {
+          "options": {
+            ...
+            "aot": true,
+            ...
+          }
+        }
+      }
+    }
+  }
+}
+```
+### Add a service worker to your project (PWA)
+
+[Getting started with service workers](https://angular.io/guide/service-worker-getting-started)
+
+Execute the following command in the terminal:
+
+```
+ng add @angular/pwa --project angularpwassrseoref
+```
+
+#### Add Support for Apple Mobile Devices
+
+Add the "meta name" and "link rel" tags in the ```<head>``` section in the index.html file in the src folder:
+
+```
+<link rel="apple-touch-icon" href="./assets/icons/icon-96x96.png">
+<meta name="apple-mobile-web-app-status-bar" content="#1976d2">
+<meta name="apple-mobile-web-app-title" content="AngularReference">
+```
+
+### Add Server-side Rendering (SSR)
+
+[Server-side Rendering (SSR): An intro to Angular Universal](https://angular.io/guide/universal)
+
+Execute the following command in the terminal:
+
+```
+ng add @nguniversal/express-engine --clientProject angularpwassrseoref
+```
+## Add SEO (Search Engine optimization)
+
+Create the file robots.txt to the src folder and create the text
+
+```
+User-agent: *
+Allow: /
+```
+
+Create the file sitemap.xml to the src folder and create the text
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+      <loc>localhost/</loc>
+      <lastmod>2019-07-03</lastmod>
+      <changefreq>always</changefreq>
+      <priority>1.0</priority>
+   </url>
+</urlset>
+```
+
+Modify angular.json and add "src/robots.txt" and "src/sitemap.xml" in tha assets,
+
+```
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/robots.txt",
+              "src/sitemap.xml,
+              "src/manifest.webmanifest"
+            ],
+```
+
+Add the meta data in the ```<head>``` section in the intex.html file in the src folder:
+
+```
+  <meta name="description" content="This is a meta description sample. We can add up to 160 characters.">
+```
+
+## Compile the Angular Client and Express Server Code.
+
+```
+npm run build:ssr
+```
+
+## Run Angular Client and Express Server.
+
+```
+npm run serve:ssr
+```
+
+Browse `http://localhost:4000/`
+
 
 ## Development server
 
