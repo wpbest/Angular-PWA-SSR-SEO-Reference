@@ -162,7 +162,9 @@ Add the meta data in the ```<head>``` section in the intex.html file in the src 
 npn install
 ```
 
-## Install NPM Check Update (NCU) abd Check packages.json for outdated packages
+## Install NPM Check Update (NCU) ad Check packages.json for outdated packages
+
+At times, the package.json file can get out of date from what is current. To check for outdated packages install npm-check-update, run ncu to see outdated packages, and then run ncu -u to update the packages.
 
 ```
 npm install -g npm-check-updates
