@@ -56,7 +56,7 @@ ng new angularpwassrseoref --routing --style scss --enable-ivy --skip-install --
 
 #### [Issue #14646 get error in ivy + SSR](https://github.com/angular/angular-cli/issues/14646).
 
-In the angularCompilerOptions in your project's tsconfig.app.json.
+The Angular Compiler Options are located in the project's tsconfig.app.json. Set "enableIvy: true" option to false.
 
 ```
 {
